@@ -16,28 +16,36 @@ app.get('/', (req, res) => {
 // CRUD -> Criar, Ler (Ler tudo e ler individualmente), atualizar e remover
 
 const mensagens = [
-    "Essa é uma mensagem",
-    "Essa é outra mensagem",
+    {
+        id: 0,
+        mensagem: "Essa é uma mensagem"    
+    },
+    {
+        id: 1,
+        mensagem: "Essa é outra mensagem"    
+    },
 ];
 
 // Read All
 app.get('/mensagens', (req, res) => {
-    res.json(mensagens);
+    res.json(mensagens.filter(Boolean));
 });
 
 // Create
 app.post('/mensagens', (req, res) => {
     // Obtendo a mensagem que foi recebida através do body da requisição
-    const mensagem = req.body.mensagem;
+    const mensagem = req.body;
 
     // Obtendo o ID da nova mensagem
     const id = mensagens.length;
+
+    mensagem.id = id;
 
     // Insiro a mensagem na lista de mensagens
     mensagens.push(mensagem);
 
     // Envio a mensagem de sucesso, informando o ID obtido
-    res.send(`A mensagem com o texto '${mensagem}' foi criada com sucesso. ID: ${id}.`);
+    res.send(`A mensagem '${mensagem.mensagem}' foi criada com sucesso. ID: ${id}.`);
 });
 
 // Read Single
@@ -65,7 +73,7 @@ app.put('/mensagens/:id', (req, res) => {
     const mensagem = req.body.mensagem;
 
     // Atualiza a mensagem direto na lista de mensagens, acessando pelo ID que foi informado
-    mensagens[id] = mensagem;
+    mensagens[id].mensagem = mensagem;
 
     // Envia uma mensagem de sucesso.
     res.send(`Mensagem com o ID ${id} foi atualizada com sucesso.`);
@@ -73,6 +81,10 @@ app.put('/mensagens/:id', (req, res) => {
 
 // Delete
 app.delete('/mensagens/:id', (req, res) => {
+    const id = req.params.id;
+
+    delete mensagens[id]
+
     res.send('Remove uma mensagem selecionada pelo ID que foi informado.');
 });
 
