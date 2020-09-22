@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "dad1f1d4-33be-4b2e-84e7-c9270bb13ae3",
+		"_postman_id": "d7e3dbf0-219c-45e0-8189-14d17ee09f11",
 		"name": "Ocean Backend 22/09/2020",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,11 +11,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/mensagens",
+					"raw": "{{API_URL}}/mensagens",
 					"host": [
-						"localhost"
+						"{{API_URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"mensagens"
 					]
@@ -30,7 +29,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"mensagem\": \"Samsung Ocean\"\r\n}",
+					"raw": "{\r\n    \"mensagem\": \"Hello world\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -38,11 +37,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/mensagens",
+					"raw": "{{API_URL}}/mensagens",
 					"host": [
-						"localhost"
+						"{{API_URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"mensagens"
 					]
@@ -51,13 +49,13 @@
 			"response": []
 		},
 		{
-			"name": "Editar mensagem por ID",
+			"name": "Editar mensagem",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"mensagem\": \"Mensagem editada\"\r\n}",
+					"raw": "{\r\n    \"mensagem\": \"Hello carai\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -65,11 +63,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/mensagens/1",
+					"raw": "{{API_URL}}/mensagens/1",
 					"host": [
-						"localhost"
+						"{{API_URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"mensagens",
 						"1"
@@ -79,19 +76,36 @@
 			"response": []
 		},
 		{
-			"name": "Visualizar mensagem por ID",
+			"name": "Deletar mensagem por id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/mensagens/2",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"mensagens",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ler mensagem específica",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/mensagens/0",
+					"raw": "{{API_URL}}/mensagens/3",
 					"host": [
-						"localhost"
+						"{{API_URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"mensagens",
-						"0"
+						"3"
 					]
 				}
 			},
@@ -102,7 +116,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "521e722f-ea93-43c5-8116-78909e48f4ef",
+				"id": "2322620b-fb8a-4309-8155-0f48acaca439",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -112,7 +126,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "65b588c9-3047-46f5-b2ac-c5ff612ba0e1",
+				"id": "3b5e7fb5-df15-4cf3-b2f9-554db72baa25",
 				"type": "text/javascript",
 				"exec": [
 					""
